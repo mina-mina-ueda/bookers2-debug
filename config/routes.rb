@@ -9,8 +9,8 @@ Rails.application.routes.draw do
   end
   resources :users do
     resource :relationships, only: [:create, :destroy]
-    get :followings, on: :member #on memberでIdを含める
-    get :followers, on: :member
+    get 'followings' => 'relationships#followings', as: 'followings' 
+    get 'followers' => 'relationships#followers', as: 'followers' 
   end
 end
 
