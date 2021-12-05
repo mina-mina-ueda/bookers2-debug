@@ -1,0 +1,25 @@
+<table class='table'>
+  <thead>
+    <tr>
+      <th></th>
+      <th>Title</th>
+      <th>Opinion</th>
+    </tr>
+  </thead>
+  <% if @range == "User" %>
+  <tbody>
+  <% @users.each do |user| %>
+    <tr>
+      <td><%= attachment_image_tag(user, :profile_image, :fill, 50, 50, fallback: "no-image-icon.jpg") %></td>  
+    </tr>
+  <% else %>
+  <tbody>
+  <% @books.each do |book| %>
+    <tr>
+      <td><%= book.title %></td>
+      <td><%= book.body %></td> 
+    </tr>
+  <% end %>  
+  </tbody>
+  <% end %>  
+</table>
