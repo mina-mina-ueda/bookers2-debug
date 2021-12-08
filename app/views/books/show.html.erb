@@ -42,10 +42,7 @@
         <% end %>
       </table>
         <div>
-          <%= form_with(model:[@book, @book_comment], local: true) do |f| %>
-            <%= f.text_area :comment, rows:'5',placeholder: "コメントをここに", size: "100x5" %><br>
-            <%= f.submit "送信" %>
-          <% end %>
+          <%= render 'comments/comments', book: @book, book_comment: @book_comment %>
         </div>
     </div>
   </div>
