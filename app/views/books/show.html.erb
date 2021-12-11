@@ -23,9 +23,14 @@
           <td id="comments_area">
             <%= render 'book_comments/index', book: @book, book_comment: @book_comment %>
           </td>
+            <% if @book.user == current_user %>
+          <td><%= link_to 'Edit', edit_book_path(@book), class: "btn btn-sm btn-success edit_book_#{@book.id}" %></td>
+          <td><%= link_to 'Destroy', book_path(@book), method: :delete, data: { confirm: '本当に消しますか？' }, class: "btn btn-sm btn-danger destroy_book_#{book.id}" %></td>
+             <% end %>
+
         </tr>
       </table>
-      <div id= "comments-create">
+      <div id= "comments_create">
         <%= render 'book_comments/form', book: @book, book_comment: @book_comment %>
       </div>
     </div>
