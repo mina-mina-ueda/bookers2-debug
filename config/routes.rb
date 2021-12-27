@@ -1,4 +1,10 @@
   Rails.application.routes.draw do
+  get 'group_users/new'
+  get 'group_users/edit'
+  get 'group_users/index'
+  get 'groups/new'
+  get 'groups/index'
+  get 'groups/edit'
   devise_for :users
   root to: 'homes#top'
   get 'home/about' => 'homes#about'
@@ -11,6 +17,7 @@
     resource :relationships, only: [:create, :destroy]
     get 'followings' => 'relationships#followings', as: 'followings' 
     get 'followers' => 'relationships#followers', as: 'followers' 
+    
   end
 
   get 'search' => 'searches#search'
